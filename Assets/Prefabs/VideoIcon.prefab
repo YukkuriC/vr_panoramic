@@ -58,7 +58,6 @@ GameObject:
   - component: {fileID: 223720451105324792}
   - component: {fileID: 114277792335613292}
   - component: {fileID: 114173617803816654}
-  - component: {fileID: 114859736656397112}
   m_Layer: 5
   m_Name: VideoIcon
   m_TagString: Untagged
@@ -163,27 +162,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
---- !u!114 &114859736656397112
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1619149307582312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8ea75214798a348b12fa0bd9bdd1f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: {fileID: 0}
-  icon: {fileID: 0}
-  main: {fileID: 0}
-  node:
-    name: 
-    position: {x: 0, y: 0, z: 0}
-    video: {fileID: 0}
-    screen: {fileID: 0}
-    player: {fileID: 0}
-    icon: {fileID: 0}
 --- !u!222 &222433059218092176
 CanvasRenderer:
   m_ObjectHideFlags: 1
