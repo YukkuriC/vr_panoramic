@@ -1,6 +1,6 @@
-*.meta
 *.mp4
 /Library
 /AE sample
 /Temp
 /.*
+*.csproj

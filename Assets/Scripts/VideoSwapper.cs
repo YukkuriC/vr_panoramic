@@ -94,8 +94,10 @@ public class VideoSwapper : MonoBehaviour {
 
 		//icons
 		activeIcons=new GameObject[videos.Length-1];
-		for(int i=0;i<videos.Length-1;i++)
+		for(int i=0;i<videos.Length-1;i++){
 			activeIcons[i]=Instantiate(prefabs.defaultIcon);
+			activeIcons[i].AddComponent<VideoIconControl>();
+		}
 
 		//first video
 		activeNode=nodes[0];
