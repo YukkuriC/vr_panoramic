@@ -39,6 +39,7 @@ Material:
     - _ColorMask: 15
     - _Exposure: 1
     - _ImageType: 0
+    - _InvFade: 1
     - _Layout: 0
     - _Mapping: 1
     - _MirrorOnBack: 0
@@ -60,3 +61,4 @@ Material:
     - _SkyTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
     - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}

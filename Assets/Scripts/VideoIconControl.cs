@@ -5,20 +5,19 @@ using UnityEngine.UI;
 
 public class VideoIconControl : MonoBehaviour {
 	public Text title;
-	public Image icon;
+	public Transform icon;
 	public VideoSwapper main;
 	public VideoNode node;
 
 	CanvasGroup titleShader;
-	CanvasGroup iconShader;
+	float iconRadius;
 
 	void Awake(){
 		title=GetComponentInChildren<Text>();
 		titleShader=title.GetComponent<CanvasGroup>();
 		titleShader.alpha=0;
-		icon=GetComponentInChildren<Image>();
-		iconShader=icon.GetComponent<CanvasGroup>();
-		iconShader.alpha=0.5f;
+		icon=GetComponentInChildren<MeshFilter>().transform;
+		iconRadius=5;
 	}
 
 	// void Start(){
@@ -30,17 +29,17 @@ public class VideoIconControl : MonoBehaviour {
 		// transform.LookAt(Camera.main.transform);
 		// transform.rotation=Quaternion.Lerp(tmp,transform.rotation,0.1f);
 
-		if(main.rayPointer==this){
+		if(this==main.rayPointer){
 			titleShader.alpha+=0.05f;
-			iconShader.alpha+=0.05f;
 			if(Input.GetKeyDown(KeyCode.KeypadEnter))
 				main.StartCoroutine(main.Switch(node));
-			icon.transform.localScale+=(Vector3.one*1.5f-icon.transform.localScale)*0.05f;
+			iconRadius+=(7.5f-iconRadius)*0.05f;
+			icon.localScale+=(Vector3.one*15-icon.localScale)*0.05f;
 		}
 		else{
-			icon.transform.localScale=Vector3.one;
+			iconRadius=5;
 			titleShader.alpha-=0.02f;
-			if(iconShader.alpha>0.5f)iconShader.alpha-=0.02f;
 		}
+		icon.localScale=Vector3.one*(iconRadius*2);
 	}
 }

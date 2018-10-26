@@ -96,7 +96,6 @@ public class VideoSwapper : MonoBehaviour {
 		activeIcons=new GameObject[videos.Length-1];
 		for(int i=0;i<videos.Length-1;i++){
 			activeIcons[i]=Instantiate(prefabs.defaultIcon);
-			activeIcons[i].AddComponent<VideoIconControl>();
 		}
 
 		//first video
@@ -118,19 +117,27 @@ public class VideoSwapper : MonoBehaviour {
 		raycastCounter++;
 		if(raycastCounter>=raycastSkip){
 			raycastCounter-=raycastSkip;
-			PointerEventData pointerData = new PointerEventData (EventSystem.current)
-			{
-				pointerId = -1,
-			};
-			pointerData.position = new Vector2(Screen.width * 0.5f,Screen.height * 0.5f);
-			// Input.mousePosition;
-
-			List<RaycastResult> results = new List<RaycastResult>();
-			EventSystem.current.RaycastAll(pointerData, results);
+			
+			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width * 0.5f,Screen.height * 0.5f));
+			RaycastHit hit;
 			rayPointer=null;
-			if(results.Count>0)
-				rayPointer=
-					results[0].gameObject.transform.parent.gameObject.GetComponent<VideoIconControl>();
+			if (Physics.Raycast(ray, out hit, iconDist+10)){
+				rayPointer=hit.collider.GetComponent<VideoIconControl>();
+				Debug.Log(hit.collider);
+			}
+			// PointerEventData pointerData = new PointerEventData (EventSystem.current)
+			// {
+			// 	pointerId = -1,
+			// };
+			// pointerData.position = new Vector2(Screen.width * 0.5f,Screen.height * 0.5f);
+			// // Input.mousePosition;
+
+			// List<RaycastResult> results = new List<RaycastResult>();
+			// EventSystem.current.RaycastAll(pointerData, results);
+			// rayPointer=null;
+			// if(results.Count>0)
+			// 	rayPointer=
+			// 		results[0].gameObject.transform.parent.gameObject.GetComponent<VideoIconControl>();
 		}
 	}
 }
