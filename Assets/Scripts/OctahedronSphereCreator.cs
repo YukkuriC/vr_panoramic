@@ -117,7 +117,9 @@ public static class OctahedronSphereCreator {
 
     private static void Normalize (Vector3[] vertices, Vector3[] normals) {
         for (int i = 0; i < vertices.Length; i++) {
-            normals[i] = vertices[i] = vertices[i].normalized;
+            var tmp=vertices[i].normalized;
+            tmp.y*=-1;
+            normals[i] = vertices[i] = tmp;
         }
     }
  
