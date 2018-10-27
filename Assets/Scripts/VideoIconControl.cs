@@ -17,7 +17,7 @@ public class VideoIconControl : MonoBehaviour {
 		titleShader=title.GetComponent<CanvasGroup>();
 		titleShader.alpha=0;
 		icon=GetComponentInChildren<MeshFilter>().transform;
-		iconRadius=5;
+		iconRadius=10;
 	}
 
 	// void Start(){
@@ -33,13 +33,13 @@ public class VideoIconControl : MonoBehaviour {
 			titleShader.alpha+=0.05f;
 			if(Input.GetKeyDown(KeyCode.KeypadEnter))
 				main.StartCoroutine(main.Switch(node));
-			iconRadius+=(7.5f-iconRadius)*0.05f;
+			iconRadius+=(15-iconRadius)*0.05f;
 			icon.localScale+=(Vector3.one*15-icon.localScale)*0.05f;
 		}
 		else{
-			iconRadius=5;
+			iconRadius=10;
 			titleShader.alpha-=0.02f;
 		}
-		icon.localScale=Vector3.one*(iconRadius*2);
+		icon.localScale=Vector3.one*iconRadius;
 	}
 }

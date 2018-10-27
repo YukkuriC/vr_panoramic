@@ -2,6 +2,6 @@
 /Library
 /AE sample
 /Temp
-/.*
+/.vscode
 *.csproj
 /Assets/Video

@@ -118,10 +118,13 @@ public class VideoSwapper : MonoBehaviour {
 		if(raycastCounter>=raycastSkip){
 			raycastCounter-=raycastSkip;
 			
-			Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width * 0.5f,Screen.height * 0.5f));
+			// Ray ray = Camera.main.ScreenPointToRay(new Vector2(200,200));
+			// Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width * 0.5f,Screen.height * 0.5f));
+			Transform cam=Camera.main.transform;
 			RaycastHit hit;
 			rayPointer=null;
-			if (Physics.Raycast(ray, out hit, iconDist+10)){
+			// if (Physics.Raycast(ray, out hit, iconDist+10)){
+			if (Physics.Raycast(cam.position, cam.forward , out hit, iconDist+10)){
 				rayPointer=hit.collider.GetComponent<VideoIconControl>();
 				Debug.Log(hit.collider);
 			}
